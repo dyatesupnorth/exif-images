@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EXIF Images</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"
+    />
+  </head>
+  <body>
+    <div>
+      <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+          <a class="navbar-brand" href="/">EXIF Images</a>
+          <ul class="nav navbar-nav"></ul>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="col-xs-4">
+          <ul class="list-group">
+            <% for(var i = 0; i < files.length; i++) { %>
+            <li class="list-group-item">
+              <a href="<%= files[i].name %>"><%= files[i].name %></a>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+        <% if(typeof imgData !== 'undefined'){ %>
+        <div class="col-xs-4">
+          <img
+            src="http://localhost:3000/public/<%= name %><%= ext %>"
+            class="img-responsive"
+            alt="<%= name %><%= ext %>"
+          />
+        </div>
+        <div class="col-xs-4">
+          <pre><%= imgData %></pre>
+        </div>
+        <%}%>
+      </div>
+    </div>
+  </body>
+</html>
